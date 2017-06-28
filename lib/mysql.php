@@ -152,10 +152,7 @@ namespace {
         {
             $link = \Dshafik\MySQL::getConnection($link);
 
-            return mysqli_query(
-                    $link,
-                    'USE `' . mysqli_real_escape_string($link, $databaseName) . '`'
-                ) !== false;
+            return mysqli_select_db($link, $databaseName);
         }
 
         function mysql_query($query, \mysqli $link = null)
