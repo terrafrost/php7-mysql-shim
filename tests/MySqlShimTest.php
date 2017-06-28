@@ -926,7 +926,19 @@ class MySqlShimTest extends \PHPUnit_Framework_TestCase
     {
         $this->getConnection();
 
-        $this->assertTrue(mysql_select_db('shim_test'));
+        mysql_query('CREATE DATABASE shim_test2');
+	mysql_select_db('shim_test2');
+	$result = mysql_query('SELECT DATABASE()');
+        $this->assertSame(mysql_result($result, 0), 'shim_test2');
+
+	mysql_select_db('shim_test');
+	$result = mysql_query('SELECT DATABASE()');
+        $this->assertSame(mysql_result($result, 0), 'shim_test');
+
+	$id = $this->getConnection();
+        mysql_select_db('shim_test2', $id);
+        $result = mysql_query('SELECT DATABASE()', $id);
+        $this->assertSame(mysql_result($result, 0), 'shim_test2');
     }
 
     public function test_mysql_select_db_specialchars()
