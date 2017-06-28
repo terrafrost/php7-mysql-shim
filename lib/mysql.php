@@ -21,9 +21,9 @@
 namespace {
 
     if (!extension_loaded('mysql')) {
-        if (!extension_loaded('mysqli')) {
-            trigger_error('php7-mysql-shim: ext/mysqli is required', E_USER_ERROR);
-        }
+        //if (!extension_loaded('mysqli')) {
+        //    trigger_error('php7-mysql-shim: ext/mysqli is required', E_USER_ERROR);
+        //}
 
         define('MYSQL_ASSOC', 1);
         define('MYSQL_NUM', 2);
