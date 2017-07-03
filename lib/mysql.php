@@ -40,9 +40,9 @@ namespace {
             $new = false,
             $flags = 0
         ) {
-            if ($new !== false) {
-                trigger_error('Argument $new is no longer supported in PHP > 7', E_USER_WARNING);
-            }
+            //if ($new !== false) {
+            //    trigger_error('Argument $new is no longer supported in PHP > 7', E_USER_WARNING);
+            //}
             if (null === $hostname) {
                 $hostname = ini_get('mysqli.default_host') ?: null;
             }
